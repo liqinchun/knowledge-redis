@@ -3,3 +3,24 @@ server:
 spring:
   redis:
     host:
+    database: 0
+    port: 6379
+    cluster:
+      nodes:
+      max-redirects: 3
+    lettuce:
+      cluster:
+        refresh:
+          adaptive: true
+      pool:
+        max-active: 8
+      # 在关闭客户端连接之前等待任务处理完成的最长时间，在这之后，无论任务是否执行完成，都会被执行器关闭
+      shutdown-timeout: 100ms
+    jedis:
+      pool:
+        # 最大连接数，使用负数表示没有限制，默认为8
+        max-active: 8
+        # 最大空闲连接，默认为8
+        max-idle: 8
+        #连接池阻塞最大等待时间，
+        max-wait: -1ms
