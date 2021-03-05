@@ -14,6 +14,9 @@ public class RedisService {
 
     public void getFromRedis() {
         redisTemplate.opsForValue().set("aaa","aaaa");
+        redisTemplate.opsForZSet().add("aaad","dsa",13D);
+        redisTemplate.opsForHash().put("aaa","aaa","aaaaa");
+        redisTemplate.opsForList().leftPush("ddd","dddd");
     }
 
 
