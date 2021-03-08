@@ -10,6 +10,7 @@
     </parent>
     <groupId>com.liqnchun.knowledge</groupId>
     <artifactId>knowledge-redis</artifactId>
+    <packaging>jar</packaging>
     <version>0.0.1-SNAPSHOT</version>
     <name>knowledge-redis</name>
     <description>Demo project for Spring Boot</description>
