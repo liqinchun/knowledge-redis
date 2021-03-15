@@ -2,18 +2,19 @@ server:
   port: 8079
 spring:
   redis:
-    host:
+    host: 10.5.19.37
     database: 0
     port: 6379
     cluster:
-      nodes:
+      nodes: 10.5.19.37:55001,10.5.19.37:55002,10.5.19.37:55003
       max-redirects: 3
     lettuce:
-      cluster:
-        refresh:
-          adaptive: true
       pool:
         max-active: 8
+      cluster:
+        refresh:
+          period:
+          adaptive: false
       # 在关闭客户端连接之前等待任务处理完成的最长时间，在这之后，无论任务是否执行完成，都会被执行器关闭
       shutdown-timeout: 100ms
     jedis:
@@ -24,3 +25,6 @@ spring:
         max-idle: 8
         #连接池阻塞最大等待时间，
         max-wait: -1ms
+
+#logging:
+#  level: trace
