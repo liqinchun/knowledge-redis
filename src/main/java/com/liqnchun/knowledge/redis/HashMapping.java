@@ -10,7 +10,7 @@ import java.util.Map;
 @Component
 public class HashMapping {
 
-    @Autowired
+    @Autowired(required = false)
     HashOperations<String, byte[], byte[]> hashOperations;
     HashMapper<Object, byte[], byte[]> mapper = new ObjectHashMapper();
 

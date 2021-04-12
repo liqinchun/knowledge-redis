@@ -2,11 +2,11 @@ server:
   port: 8079
 spring:
   redis:
-    host: 10.5.19.37
+    #    host: 10.5.19.61
     database: 0
-    port: 6379
+    #    port: 6379
     cluster:
-      nodes: 10.5.19.37:55001,10.5.19.37:55002,10.5.19.37:55003
+      nodes: 10.5.24.127:50001,10.5.24.127:50002,10.5.24.127:50003
       max-redirects: 3
     lettuce:
       pool:
@@ -25,6 +25,39 @@ spring:
         max-idle: 8
         #连接池阻塞最大等待时间，
         max-wait: -1ms
+    redisson:
+      clusterServersConfig:
+        idleConnectionTimeout: 10000
+        connectTimeout: 10000
+        timeout: 3000
+        retryAttempts: 3
+        retryInterval: 1500
+        failedSlaveReconnectionInterval: 3000
+        failedSlaveCheckInterval: 60000
+        password: null
+        subscriptionsPerConnection: 5
+        clientName: null
+        # loadBalancer: !<org.redisson.connection.balancer.RoundRobinLoadBalancer> {}
+        subscriptionConnectionMinimumIdleSize: 1
+        subscriptionConnectionPoolSize: 50
+        slaveConnectionMinimumIdleSize: 24
+        slaveConnectionPoolSize: 64
+        masterConnectionMinimumIdleSize: 24
+        masterConnectionPoolSize: 64
+        readMode: "SLAVE"
+        subscriptionMode: "SLAVE"
+        nodeAddresses:
+          - "redis://10.5.24.127:50001"
+          - "redis://10.5.24.127:50002"
+          - "redis://10.5.24.127:50003"
+        scanInterval: 1000
+        pingConnectionInterval: 0
+        keepAlive: false
+        tcpNoDelay: false
+        threads: 16
+        nettyThreads: 32
+        # codec: !<org.redisson.codec.MarshallingCodec> {}
+        transportMode: "NIO"
 
 #logging:
 #  level: trace

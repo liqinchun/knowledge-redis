@@ -6,18 +6,18 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.Mapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import reactor.core.publisher.Mono;
+
 
 @RestController
 @RequestMapping("redis/reactor")
 public class ReactorController {
 
-    @Autowired
-    ReactiveRedisTemplate reactiveRedisTemplate;
+//    @Autowired
+//    ReactiveRedisTemplate reactiveRedisTemplate;
 
-    @GetMapping
-    public Mono<String> getName() {
-        return reactiveRedisTemplate.opsForValue().get("name");
-    }
+//    @GetMapping
+//    public Mono<String> getName() {
+//        return reactiveRedisTemplate.opsForValue().get("name");
+//    }
 
 }
