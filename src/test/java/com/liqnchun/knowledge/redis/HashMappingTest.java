@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import static org.junit.jupiter.api.Assertions.*;
+
 @SpringBootTest
 class HashMappingTest {
 
@@ -15,7 +16,7 @@ class HashMappingTest {
     void writeHash() {
         Person person = new Person();
         person.setName("liqinchun");
-        hashMapping.writeHash("person",person);
+        hashMapping.writeHash("person", person);
     }
 
     @Test

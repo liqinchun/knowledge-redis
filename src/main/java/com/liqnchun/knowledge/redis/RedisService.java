@@ -14,6 +14,7 @@ public class RedisService {
     public RedisService(RedisTemplate redisTemplate) {
         this.redisTemplate = redisTemplate;
         redisTemplate.opsForValue().set("aaa","aaaadsadasdasdasdas");
+//        redisTemplate.opsForHash().put("aaa", "aaa", "aaaaa");
         System.out.println(redisTemplate.opsForValue().get("aaa"));
     }
 
