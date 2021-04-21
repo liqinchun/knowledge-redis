@@ -1,5 +1,6 @@
 package com.liqnchun.knowledge.redis;
 
+import com.liqnchun.knowledge.redis.scenario.RedisService;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -27,6 +28,9 @@ class RedisServiceTest {
     @Autowired
     RedisConnectionFactory redisConnectionFactory;
 
+    @Autowired
+    RedisService redisService;
+
 
     @Test
     void getFromRedis() {
@@ -48,5 +52,10 @@ class RedisServiceTest {
 //        } catch (InterruptedException e) {
 //            e.printStackTrace();
 //        }
+    }
+
+    @Test
+    void deckTest() {
+        redisService.deck();
     }
 }
